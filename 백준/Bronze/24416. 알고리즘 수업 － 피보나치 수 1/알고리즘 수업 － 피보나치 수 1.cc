@@ -19,7 +19,7 @@ int fibonacci(int n) {
     f[2] = 1;
     for (int i = 3; i<=n;++i){
         ++cnt2;
-        f[i] <- f[i - 1] + f[i - 2];  // 코드2
+        f[i] = f[i - 1] + f[i - 2];  // 코드2
     }
     return f[n];
 }

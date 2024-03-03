@@ -6,13 +6,16 @@ public class Main {
         BufferedReader input = new BufferedReader(new InputStreamReader(System.in));
         int T = Integer.parseInt(input.readLine());
         BufferedWriter output = new BufferedWriter(new OutputStreamWriter(System.out));
+
         for(int i=0; i<T; ++i) {
-            String[] line = input.readLine().split(" ", 2);
-            int iter = Integer.parseInt(line[0]);
-            for(int j=0; j<line[1].length(); ++j){
-                char c = line[1].charAt(j);
-                for(int k=0; k<iter; ++k){
-                    output.write(c);
+            int iter = input.read()-48; // '0' == 48
+            char c = (char)input.read(); // read space(' ')
+            while(true){
+                c = (char)input.read();
+                if(Character.compare(c,'\n') != 0 && c > 0){ // endline check & null check
+                    for(int j=0; j<iter; ++j) output.write(c);
+                }else{
+                    break;
                 }
             }
             output.write('\n');
